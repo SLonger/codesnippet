@@ -94,14 +94,4 @@ sudo shutdown -r now
 
 尝试一次不纯洁的go get
 ```
-go get golang.org/x/net/publicsuffix
-```
-应该可以无错误运行.有错误我也没办法了~~~~ 生活在天朝当个码农真心不容易
-
-
-#参考链接:
-http://1.guotie.sinaapp.com/?p=802
-
-http://www.chenxuanyi.cn/privoxy-socks-http.html
-
-http://www.mokeedev.com/2014/07/23/syncandroidsource/
+转载 来自：https://gist.github.com/9a4f1791fe4305b0750a.git
