@@ -1,0 +1,59 @@
+1. vim edit one file when start	
+
+	:edit fool.ext  : edit another file.
+	:edit! fool.ext : discard your changes and edit another file.
+	:hide edit fool.txt : edit another file but not write change in current file.
+	:write :write the file.
+
+	1) operate buffer command.
+
+		:ls or :buffers 	: list all file in buffer.
+		:b/bu/buffer  number/filename   : open  one file in buffer
+		:sbuffer number		: open a buffer in a  new window.
+		:bnext	: goto next buffer
+		:bprevious	: go to previous buffer
+		:bfirst		: go to first buffer
+		:blast		: go to last buffer
+		:bdeletea 3 : remove a buffer from list
+		:edit #nuber : switch to a given buffer number.
+		<C-^>/<C-6>/:b#	: switch to the previous edited buffer.
+		:buffer/b ! number 	: hide current buffer and display number.  
+
+
+2.vim edit multiple when start(vim a.txt b.txt )
+
+	:next   : next file
+	:netx!  : discard change  and edit another file
+	:wnext  : write file and edit  another file
+	:args	: show all file which vim edit
+	:previous	:go back one file
+	:wprevious	: save change  and go back one file
+	:last	: move to last file
+	:first	: move first file
+	:2next	: skip two file forward
+	two prededined  marks userful 
+	`":	take you to the position where the cursor was when you  left the file.	
+	`.:  remembered the position where you made the last change.
+
+3. split the window
+:split 	:open a new window
+:close	: close a window
+:only 	: close all windows except for the current one.
+:split two.c 	: open a second window for two.c
+:new	: open  a window on a  new, empty file.
+:3split filename 	: the number height of the  new window
+number ctrl-W + 	: increase the size of window (number height line)
+number Ctrl-W -	: decrease it.	(number height line)
+{number} ctrl-W  _ 	: set the window height to a specified number of lines:
+
+:vsplit		: open file to make window appear at the left side.
+ctrl-W h/j/k/l	:left/below/above/right
+ctrl-W t/b		: top/bottom
+ctrl-w K/H/J/L		: move window top/left/bottom/right
+:qall/wall/wqall/qall!	: all window quit/ write/write and quit/ quit without change
+
+4. edit remote host directory
+vim [protocol]://[user@]hostname/path/ # eg: vim scp://user@somehostname//home/username/	
+
+
+

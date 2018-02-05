@@ -1,0 +1,18 @@
+ctrol+A: move begin of line                      ~             ctrol+E: move end of line
+ctrol+B: move back one character  position       ~             ctrol+F: move forward one character position
+ctrol+U|w: erase input from cursor back to begin ~             ctrol+k: erease from the current position to end
+ctrol+S:  stop all output to the screen          ~             ctrol+Q: Resume output to the screen after stopping it with Ctrl+S.
+ctrol+H: erase one chracter back.                
+ctrol+J: newline
+ctrol+L : clear terminal screen
+ctrol+M : like  ENTER keyborad
+ctrol+P : like !! (recall last comand from history) ~           ctrol+N: next command in the command
+ctrol+R : backwards search for text in history buffer
+ctrol+o : run command after ctrl+R & ctrol+G : cancel run the command after ctrl + R
+ctrol+T : reverse the position of the character the cursor is on with the previous character  & alt+T: exchange current word and previous word
+ctrol+Y : pastes back text previously erased(with ctrl+u or ctrl+w)
+ctrol+xx: Move between the beginning of the line and the current position of the cursor.
+ctrol+_ : undo last key press.
+
+alt+u: the current position to end with Upper case ~ alt+l: the current position  to end with low case
+alt+c: the current posintion with Upper case

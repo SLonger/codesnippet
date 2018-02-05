@@ -1,0 +1,78 @@
+=====================
+left-right motions
+====================
+1. h=ctrl-h=<BS>  : character to the left
+2. l=Space		  : character to the right
+3. 0 			  : to  the first of the line.and  $		  : to  the end   of the line
+4. ^  			  : to the first  no-blank of the line and  g_ 			  : to the last non_blank character of the line
+5.f/F/t/T		  : to the occurrence of {char} to the right/left/ till before occurrence of the rigth/ till after the occurrence of the left
+6. ;/,			  : repeat  latest f/t/F/T operator/ repeat latest f/t/F/T  in opposite  direction.
+======================
+	up-down-motions
+======================
+7. 3$ : move to the end of the next two line related of the current line.         3_: move to the first no-blank of the next two line related of the current line
+7. k=<UP>=ctrl-p , j=<DOWN>=ctrl-j=ctrl-n
+8. -<minus>  line upward on the first non-blank , +/ctrl-m/<CR> line downward on the first non-blank
+9. :[range]  set the cursor to the last line number in [range]
+10. {count}%  go to {count} percentage in the file (eg: 20%)
+
+=====================
+word-motions
+=====================
+
+11. w/e/b/ge	word forward/word end  forward/ word backward/ word end backward/
+12. W/E/B/gE	WORD forward/WORD end  forward/ WORD backward/ WORD end backward
+
+====================
+object-motions
+====================
+
+13. (/)  sentences backward /sentences forward
+14.{/}	paragraphs backward /paragraphs forward
+
+15. a sentence is defined as ending at a " . , ! or  ?"  followed by either the end of a line , or by a Space or tab . any \
+number  of closing " ) ] "  ' character may appear after  the . , ! ?  before the Spaces, tabs, or end of line . a para and section boundary is also a sentence. 
+
+
+16. dgn	delete next search pattern match
+17. zt: put the cursor line at the top of the window 
+    zz: put the cursor line at the midle of the window
+    zb: put the cursor line at the bottom of the window
+]] : the next'{'  in the first column     [[: the previous '{' in the first column
+][ : the next'}'   int the first column   []: the previous '}' in the first column
+
+======================
+move in line and then enter insert mode 
+======================
+18. gI: move the first of line and enter insert mode    A:move the last of line and enter insert mode   
+19. I : move the first not blank of the line and enter insert mode I
+20. gi: restart the insert mode from the previous position where the insert mode was last stopped.
+
+===========================
+jump
+============================
+ g; and g, to move backward and forward in your edit locations
+ ctrl-o and  ctrl-i, jump back and jump forward
+ command mode  :jumps  show all jumplist
+
+===============================
+insert mode 
+===============================
+ctrl+w:  clear a word	ctrl+u : clear a sentence
+ctrl+n:  complete for word search before cursor 			ctrl+p :complete for word search forward
+ctrl+a:  inserts the text you typed the last time you were in Insert mode	
+CTRL-@:	 command does a CTRL-A and then exits Insert mode
+CTRL-Y:  inserts the character above the cursor		ctrl+e: inserts the character below the cursor
+ctrl-r {register}: insert the content of register in sert mode.
+
+
+
+
+
+
+
+
+
+
+
+
