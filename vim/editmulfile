@@ -42,15 +42,24 @@
 :split two.c 	: open a second window for two.c
 :new	: open  a window on a  new, empty file.
 :3split filename 	: the number height of the  new window
-number ctrl-W + 	: increase the size of window (number height line)
-number Ctrl-W -	: decrease it.	(number height line)
-{number} ctrl-W  _ 	: set the window height to a specified number of lines:
 
 :vsplit		: open file to make window appear at the left side.
 ctrl-W h/j/k/l	:left/below/above/right
 ctrl-W t/b		: top/bottom
 ctrl-w K/H/J/L		: move window top/left/bottom/right
+ctrl-w r                : rotates all windows
 :qall/wall/wqall/qall!	: all window quit/ write/write and quit/ quit without change
+:resize 60 		: set height 60
+:vertical resize 80     :change the width of the current window
+split:
+	[number]ctrl-w +/-  :increse the size height of window/ decrease the size of window
+	
+vsplit: 
+	[number]ctrl+w >/<  :increase the size width of window/ decerase the size of window
+	
+ctrl-w = :      resize all windows to equal dimensions based on their splits
+ctrl-W  _ :     increase a window to its maximum height
+ctrl-w |:        increase a window to its maximum width
 
 4. edit remote host directory
 vim [protocol]://[user@]hostname/path/ # eg: vim scp://user@somehostname//home/username/	
