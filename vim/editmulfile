@@ -65,4 +65,17 @@ ctrl-w |:        increase a window to its maximum width
 vim [protocol]://[user@]hostname/path/ # eg: vim scp://user@somehostname//home/username/	
 
 
+5. vim tabpage 
+:tabfirst		:tablast        first / last page 
+:tabprev		:tabnext 	  	prev  / next page
+:tabedit               			edit file to new tab 
+:tabmove 						move table to last
+:tabclose 						close curent tab
 
+6. vim folding
+
+set foldmethod=syntax 			folds are defined by syntax highlighting
+zc/zo/za 					close/open/toggle on one level of folding
+zC/zO/zA					close/open/toggle on all folding levels
+zr/zm 							folding by  opening one more level of folds throughout the whole buffer/ by closeing one more level of folds throughout the whole buffer.
+zR open all folds/zM close all folds
