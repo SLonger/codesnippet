@@ -1,10 +1,11 @@
 set nocompatible
 syntax on
 filetype indent plugin on
-set rnu 
+set rnu nu 
+nnoremap <Leader>nu :set nu! rnu!<CR>
 set ts=4
 set sw=4
-set nu
+
 set incsearch
 
 set t_Co=256
@@ -41,6 +42,7 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 """"""""""""'vim-go"""""""""
 let g:go_def_mode = 'gopls'
+let g:go_fmt_command  = "goimports"
 "let g:go_highlight_functions = 1
 au FileType go nmap <Leader>f <Plug>(go-def-tab)
 """""""""""""""""""""""""""
@@ -142,3 +144,9 @@ set nofoldenable
 """"""""""""""""""""""""""""""""
 
 set mouse=a 
+
+"""""""""""vim Highlight"""""
+"set cursorcolumn
+set cursorline
+hi CursorLine cterm=NONE ctermbg=black ctermfg=yellow guibg=NONE guifg=NONE
+hi CursorColumn cterm=NONE ctermbg=black ctermfg=yellow guibg=NONE guifg=NONE
