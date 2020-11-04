@@ -23,12 +23,19 @@ call plug#begin('~/.vim/plugged')
 Plug 'wikitopian/hardmode'
 
 """""""""" go """"""""""""""""""""""""
-Plug 'fatih/vim-go' "{ 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries' }
 """""""""""""""""""""""""""""""""""""
 
+
+"""""""""""netree"""""""""""""""
+Plug 'scrooloose/nerdtree'
+"""""""""""""""""""""""""""""""
+
+
 """""""""""""""fzf"""""""""""""""""""""
-Plug '/home/linuxbrew/.linuxbrew/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+"""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""
 
@@ -41,7 +48,8 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 
 """"""""""""'vim-go"""""""""
-let g:go_def_mode = 'gopls'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 let g:go_fmt_command  = "goimports"
 "let g:go_highlight_functions = 1
 au FileType go nmap <Leader>f <Plug>(go-def-tab)
@@ -62,69 +70,6 @@ nnoremap <silent> <C-f>m :Marks<CR>
 nnoremap <silent> <C-f>w :Windows<CR>
 nnoremap <silent> <C-f>c :Commands<CR>
 """"""""""""""""""""""""""""""""""""""""
-
-
-""""""""vim tab setting """"""""""""""""
-"Rename tabs to show tab number.
-if exists("+showtabline")
-    function! MyTabLine()
-        let s = ''
-        let wn = ''
-        let t = tabpagenr()
-        let i = 1
-        while i <= tabpagenr('$')
-            let buflist = tabpagebuflist(i)
-            let winnr = tabpagewinnr(i)
-            let s .= '%' . i . 'T'
-            let s .= (i == t ? '%1*' : '%2*')
-            let s .= ' '
-            let wn = tabpagewinnr(i,'$')
-
-            let s .= '%#TabNum#'
-            let s .= i
-            " let s .= '%*'
-            let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
-            let bufnr = buflist[winnr - 1]
-            let file = bufname(bufnr)
-            let buftype = getbufvar(bufnr, 'buftype')
-            if buftype == 'nofile'
-                if file =~ '\/.'
-                    let file = substitute(file, '.*\/\ze.', '', '')
-                endif
-            else
-                let file = fnamemodify(file, ':p:t')
-            endif
-            if file == ''
-                let file = '[No Name]'
-            endif
-            let s .= ' ' . file . ' '
-            let i = i + 1
-        endwhile
-        let s .= '%T%#TabLineFill#%='
-        let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-        return s
-    endfunction
-    set stal=2
-    set tabline=%!MyTabLine()
-    highlight link TabNum Special
-endif
-"hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
-"hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
-"hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
-
-set showtabline =2
-nnoremap tH gT
-nnoremap tL gt
-nnoremap t>   :tabm<CR>
-nnoremap tX   :tabclose<CR>
-""""""""""""""""""""""""""""""""""
-
-""""""""""""""""netrw setting """"""""""""""""
-let g:netrw_banner=0
-let g:netrw_winsize=10
-let g:netrw_browse_split=4
-let g:netrw_liststyle=3
-""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""custom remap""""""""""""""""
 " find have edit file 
