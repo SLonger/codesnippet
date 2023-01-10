@@ -4,14 +4,17 @@ filetype indent plugin on
 set rnu nu 
 set ts=4
 set sw=4
+set splitright " new vertical splits are on the right
 
 set incsearch
 
 set t_Co=256
 set background=dark
 
+set rtp+=/usr/local/opt/fzf
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
 
 
 """""""""""""""""""vim-plugin"""""""""""""""""""""
@@ -26,7 +29,7 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries' }
 
 """""""""""netree"""""""""""""""
 Plug 'scrooloose/nerdtree'
-"""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 
 
 """""""""""""""fzf"""""""""""""""""""""
@@ -34,8 +37,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 """""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""
+"""""""""""tarbar""""""""""""""""
+Plug 'preservim/tagbar'
+""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -44,8 +50,12 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""nerdtree""""""""""""""""""""""""
-"let NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
 let NERDTreeWinSize=31
+
+
+" set current nerdtree buffer not be instead."
+"autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 | \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 """"""""""""""""""""""""""""""""""""
 
 """"""""""""'vim-go"""""""""
@@ -57,7 +67,9 @@ let g:go_imports_mode = "gopls"
 let g:go_fmt_autosave = 1
 "let g:go_highlight_functions = 1
 "let g:go_debug=["lsp"] 
-au FileType go nmap <Leader>f <Plug>(go-def-tab)
+let g:go_def_reuse_buffer = 1 " 跳到已经存在的buffer
+au FileType go nmap <Leader>ft <Plug>(go-def-tab)
+au FileType go nmap <Leader>fvs <Plug>(go-def-vertical)
 """""""""""""""""""""""""""
 
 """""""""fzf """""""""""""
@@ -68,6 +80,8 @@ command! -bang -nargs=* Rg
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
 
+
+"let g:fzf_buffers_jump = 1
 nnoremap <silent> <C-g>f :Files<CR>
 nnoremap <silent> <C-g>b :Buffers<CR>
 nnoremap <silent> <C-g>r :Rg<CR>
@@ -87,6 +101,12 @@ iabbrev #e <CR>***********************/
 " add {} "
 imap <Leader>oo {<CR>}<ESC>O
 
+"fix window"
+set noea
+
+"set window fix width"
+noremap <Leader>vs :vertical resize 30 <CR>
+
 
 """""""""""vim folding setting"""""""
 set foldmethod=syntax
@@ -94,9 +114,9 @@ set nofoldenable
 """"""""""""""""""""""""""""""""
 
 set mouse=a 
-
 """""""""""vim Highlight"""""
 "set cursorcolumn
 set cursorline
 hi CursorLine cterm=NONE ctermbg=black ctermfg=yellow guibg=NONE guifg=NONE
 hi CursorColumn cterm=NONE ctermbg=black ctermfg=yellow guibg=NONE guifg=NONE
+
